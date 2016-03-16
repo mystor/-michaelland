@@ -1,0 +1,26 @@
+<title>Fishing - Michaelland</title>
+<link rel="stylesheet" href="styles.css">
+<script src="loaddata.js"></script>
+
+<script>
+function trashFish() {
+  data.fish = null;
+  setData(data);
+  location.reload();
+}
+</script>
+
+<iframe class="money" src="money.html"></iframe>
+<div class="blurb">
+  <h1>Fishmonger</h1>
+  <p>Why hello there, I'm the friendly local fishmonger!</p>
+  <p>Fish are quite useful.  They have this magical ability to attract (or scare away) harder enemies within the colosseum!</p>
+  <script>
+    if (data.fish) {
+      p('<p>Your ', data.fish.name, ' will increase the difficulty of enemies by ', data.fish.level, '! Cool, eh?</p>');
+      p('<p><a href="javascript:trashFish()">Throw out your fish</a></p>');
+    } else {
+      p('<p>You don\'t seem to have a fish. You should get one!</p>');
+    }
+  </script>
+</div>

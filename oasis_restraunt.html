@@ -1,0 +1,41 @@
+<title>Restraunt - Michaelland</title>
+<link rel="stylesheet" href="styles.css">
+<script src="loaddata.js"></script>
+
+<script>
+var food = [];
+
+function buy(i) {
+  if (food[i].price > data.gold) {
+    alert('You don\'t have enough money to buy that!');
+    return;
+  }
+  data.gold -= food[i].price;
+  data.food = food[i];
+  setData(data);
+  window.top.location.reload();
+}
+</script>
+
+<iframe class="money" src="money.html"></iframe>
+<div class="blurb">
+  <h1>Restraunt</h1>
+  <p>Why hello there! Welcome to my restraunt!</p>
+  <script>
+  if (data.food) {
+    p('<p>You can only carry one food item at a time! If you buy something you\'ll have to throw out your ', data.food.name, '!</p>');
+  }
+  </script>
+  <table>
+    <script>
+    for (var i=0; i<5; i++) {
+      food[i] = {
+        name: ['sushi', 'pizza', 'ramen', 'cheese wheel', 'popsicle', 'watermelon', 'caviar', 'lemonade', 'chicken', 'beef', 'tortillas'].chooseRandom(),
+        level: randomI((i+1)*3, 3)
+      };
+      food[i].price = Math.max(randomI(Math.pow(2,food[i].level), Math.pow(2, food[i].level/2)) + 50, 5);
+      p('<tr><td>',food[i].name,'</td><td>',food[i].price,'</td><td><a href="javascript:buy(',i,')">Buy!</a></td></tr>');
+    }
+    </script>
+  </table>
+</div>

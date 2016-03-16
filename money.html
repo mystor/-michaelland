@@ -1,0 +1,27 @@
+<style>
+td: {width: 100px;}
+</style>
+<script src="loaddata.js"></script>
+<div align="center">
+  <table>
+    <tr>
+      <th rowspan=2 style="font-size: 200%"><a href="index.html" target="_top">MichaelLand!</a></th>
+      <th>Gold</th>
+      <th>Fish</th>
+      <th>Food</th>
+      <th>Weapon</th>
+      <th>Damage</th>
+      <th>Victories</th>
+      <th>Defeats</th>
+    </tr>
+    <tr>
+      <td><script>p(data.gold);</script></td>
+      <td><script>p((data.fish||{name: '<i>--</i>'}).name);</script></td>
+      <td><script>p((data.food||{name: '<i>--</i>'}).name);</script></td>
+      <td><script>p(data.weapon.name);</script></td>
+      <td><script>p(data.weapon.damage);</script></td>
+      <td><script>p(data.victories);</script></td>
+      <td><script>p(data.defeats);</script></td>
+    </tr>
+  </table>
+</div>

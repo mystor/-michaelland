@@ -1,0 +1,30 @@
+<title>Fishing - Michaelland</title>
+<link rel="stylesheet" href="styles.css">
+<script src="loaddata.js"></script>
+
+<script>
+var fish = {
+  name: ['salmon', 'rotten fish', 'tuna', 'bass', 'goldfish', 'hagfish', 'catfish', 'shark', 'boot'].chooseRandom(),
+  level: Math.max(randomI(20, 30), 0)
+};
+
+function take() {
+  data.fish = fish;
+  setData(data);
+  location.reload();
+}
+</script>
+
+<iframe class="money" src="money.html"></iframe>
+<div class="blurb">
+  <h1>Fishing Pond</h1>
+  <p>Its a fishing pond, you can fish here!</p>
+  <p>You see a <script>p(fish.name)</script>, and catch it with your <script>p(data.weapon.name)</script></p>
+  <script>
+    if (data.fish) {
+      p('<p>You\'re currently carrying a ', data.fish.name, '. You can only carry one fish at a time</p>');
+    }
+  </script>
+  <p><a href="javascript:take()">Take the <script>p(fish.name)</script></a></p>
+  <p><a href="javascript:location.reload()">Keep Fishing</a></p>
+</div>

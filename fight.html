@@ -1,0 +1,34 @@
+<title>Combat - Michaelland</title>
+<link rel="stylesheet" href="styles.css">
+<script src="loaddata.js"></script>
+
+<script>
+var fishLevel = 5+(data.fish || {level: 0}).level;
+var damage = Math.max(randomI(3 * fishLevel, 2 * fishLevel), 0);
+var enemy = {
+  name: ['goblin', 'witch', 'troll', 'orc'].chooseRandom(),
+  damage: damage,
+  value: Math.max(randomI(damage + fishLevel*2, damage), 5)
+};
+var yourDamage = randomI(data.weapon.damage, data.weapon.damage / 4);
+</script>
+
+<iframe class="money" src="money.html"></iframe>
+<div class="blurb">
+  <h1>A <script>p(enemy.name)</script> attacks you!</h1>
+  <p>He does <script>p(enemy.damage)</script> damage</p>
+  <p>You do <script>p(yourDamage)</script> damage with your <script>p(data.weapon.name);</script></p>
+  <p><script>
+    if (yourDamage >= enemy.damage) {
+      p('You kill the ', enemy.name, ', earning ', enemy.value, ' gold!');
+      data.gold += enemy.value;
+      data.victories++;
+      setData(data);
+    } else {
+      p('You are defeated by the ', enemy.name, '!');
+      data.defeats++;
+      setData(data);
+    }
+  </script></p>
+  <p><a href="javascript:location.reload()">Fight again?</a></p>
+</div>

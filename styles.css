@@ -1,0 +1,24 @@
+iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.money {
+  height: 70px;
+}
+
+.map {
+  height: 516px;
+  width: 516px;
+  margin: 0px auto;
+}
+
+.blurb {
+  width: 700px;
+  margin: 0px auto;
+}
+
+body {
+  background-color: #ccc;
+}

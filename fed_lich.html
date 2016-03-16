@@ -1,0 +1,23 @@
+<title>Lich - Michaelland</title>
+<link rel="stylesheet" href="styles.css">
+<script src="loaddata.js"></script>
+
+<script>
+var newWeapon = {
+  name: ['cleaver', 'sword', 'whip', 'axe', 'rapier', 'polearm', 'gauntlet', 'battleaxe', 'club', 'mace', 'maul', 'morning star', 'quarterstaff', 'war hammer', 'bludgeon', 'flail', 'glaive', 'halibard', 'floppy fish'].chooseRandom(),
+  damage: Math.max(randomI(data.food.level * 3, data.food.level * 3), 10)
+};
+</script>
+
+<iframe class="money" src="money.html"></iframe>
+<div class="blurb">
+  <h1>Lich</h1>
+  <p>Why, thank you for your <script>p(data.food.name)</script> petty human.</p>
+  <p>To reward you, I have performed some dark magics, and transformed your <script>p(data.weapon.name, '(', data.weapon.damage, ' damage)')</script> into a <script>p(newWeapon.name, '(', newWeapon.damage, ' damage)')</script>!</p>
+</div>
+<script>
+data.food = null;
+data.weapon = newWeapon;
+setData(data);
+</script>
+

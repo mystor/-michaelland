@@ -1,0 +1,17 @@
+<title>Lich - Michaelland</title>
+<link rel="stylesheet" href="styles.css">
+<script src="loaddata.js"></script>
+
+<iframe class="money" src="money.html"></iframe>
+<div class="blurb">
+  <h1>Lich</h1>
+  <p>Hello there, petty human. Welcome to my humble abode</p>
+  <p><script>
+    if (data.food) {
+      p('That ', data.food.name, ' that you\'re  carrying looks mighty delicious.  You should give it to me!</p><p>');
+      p('<a href="fed_lich.html">Give the Lich your ', data.food.name, '</a>');
+    } else {
+      p('It upsets me that you come without a gift.  I\'m quite fond of food, so maybe try that...');
+    }
+  </script></p>
+</div>
